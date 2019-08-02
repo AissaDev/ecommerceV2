@@ -3,20 +3,37 @@ package net.sid.eco.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
-public class Categorie implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+@Entity
+public class Categorie implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idcategorie;
+    @NotEmpty
+    @Size(min=4,max=20)
 	private String nomCategorie;
+    @Size(min=1)
 	private String description;
+	@Lob
 	private byte[] photo;
 	private String nomPhoto;
+	@OneToMany(mappedBy="categorie")
 	private Collection<Produit> produits;
 	
 	// constructors 
 	
 	public Categorie() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	

@@ -2,18 +2,31 @@ package net.sid.eco.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+@Entity
 public class LigneCommande implements Serializable {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private int quantite;
-	private int prix;
+	private double prix;
+	@ManyToOne
+	@JoinColumn(name="idProduit")
 	private Produit produit;
+	@ManyToOne
+	@JoinColumn(name="idCommande")
 	private Commande commande;
 	
 	
 	
 	public LigneCommande() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	
@@ -36,10 +49,10 @@ public class LigneCommande implements Serializable {
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
-	public int getPrix() {
+	public double getPrix() {
 		return prix;
 	}
-	public void setPrix(int prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 	public Produit getProduit() {
