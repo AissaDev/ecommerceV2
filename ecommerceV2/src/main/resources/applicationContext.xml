@@ -33,5 +33,12 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<context:annotation-config></context:annotation-config>
+	<bean id="dao" class="net.sid.eco.dao.BoutiqueDAOImpl"></bean>
+	<bean id="metier" class="net.sid.eco.metier.BoutiqueMetierImpl">
+	
+	<property name="dao" ref="dao"></property>
+	
+	</bean>
+	
 </beans>
 
