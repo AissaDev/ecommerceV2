@@ -152,7 +152,17 @@
 			<artifactId>spring-orm</artifactId>
 			<version>3.2.3.RELEASE</version>
 		</dependency>
-
+		<!-- Apache Commons Upload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
