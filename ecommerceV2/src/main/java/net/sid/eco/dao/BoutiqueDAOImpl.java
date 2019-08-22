@@ -26,7 +26,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDAO {
 	@Override
 	public Long ajouterCategorie(Categorie c) {
 		em.persist(c);
-		return c.getIdcategorie();
+		return c.getIdCategorie();
 	}
 
 	@Override

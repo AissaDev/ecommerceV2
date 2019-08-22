@@ -27,7 +27,7 @@ public class Produit implements Serializable{
 	private boolean selected;
 	private String photo;
 	@ManyToOne
-	@JoinColumn(name="idCategorie")
+	@JoinColumn(name="ID_CAT")
 	private Categorie categorie;
 	
 	

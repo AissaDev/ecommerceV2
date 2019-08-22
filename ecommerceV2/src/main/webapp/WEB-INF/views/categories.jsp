@@ -4,14 +4,18 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
+<div class="errors">
+  ${exception}
+</div>
 <div id="formCat" class="cadre">
 	<f:form modelAttribute="categorie" action="saveCat" method="post"
 		enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>ID Catégorie:</td>
-				<td><f:input path="idcategorie"/></td>
-				<td><f:errors path="idcategorie" cssClass="errors"></f:errors></td>
+				<td>${categorie.idCategorie}<f:input type="hidden"
+						path="idCategorie" /></td>
+				<td><f:errors path="idCategorie"></f:errors></td>
 			</tr>
 			<tr>
 				<td>Nom Catégorie</td>
@@ -25,6 +29,9 @@
 			</tr>
 			<tr>
 				<td>Photo</td>
+				<c:if test="${categorie.idCategorie!=null}">
+					<td><img src="photoCat?idCat=${categorie.idCategorie}"></td>
+				</c:if>
 				<td><input type="file" name="file"></td>
 			</tr>
 			<tr>
@@ -33,7 +40,7 @@
 		</table>
 	</f:form>
 </div>
-<div id="" >
+<div id="tabCategories" class="cadre">
 	<table class="tabStyle1">
 		<tr>
 			<th>ID</th>
@@ -45,10 +52,12 @@
 		</tr>
 		<c:forEach items="${categories}" var="cat">
 			<tr>
-				<td>${cat.idcategorie}</td>
+				<td>${cat.idCategorie}</td>
 				<td>${cat.nomCategorie}</td>
 				<td>${cat.description}</td>
-				<td><img src="photoCat?idCat=${cat.idcategorie}"></td>
+				<td><img src="photoCat?idCat=${cat.idCategorie}"></td>
+				<td><a href="suppCat?idCat=${cat.idCategorie}">Supprimer</a></td>
+				<td><a href="editCat?idCat=${cat.idCategorie}">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Categorie implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idcategorie;
+	private Long idCategorie;
     @NotEmpty
     @Size(min=4,max=20)
 	private String nomCategorie;
@@ -50,11 +50,11 @@ public class Categorie implements Serializable {
 
 // getters and setters
 
-	public Long getIdcategorie() {
-		return idcategorie;
+	public Long getIdCategorie() {
+		return idCategorie;
 	}
-	public void setIdcategorie(Long idcategorie) {
-		this.idcategorie = idcategorie;
+	public void setIdCategorie(Long idcategorie) {
+		this.idCategorie = idcategorie;
 	}
 	public String getNomCategorie() {
 		return nomCategorie;
